@@ -1,5 +1,5 @@
 from app.bot.Bot import Bot
-from app.bot.actions.enviroment import initialize_environment 
+from app.bot.actions.enviroment.initialize_environment import initialize_environment 
 
 
 class Pipeline:
@@ -8,8 +8,9 @@ class Pipeline:
   
   def run(self):
     initialize_environment(display=":99", resolution="1280x720", color_depth=24)
+    print("foi")
     #entrar na reunião:
     driver = self.meetBot.joinMet()
-
+    
 
     #sair da reunião:
