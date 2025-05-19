@@ -2,14 +2,17 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-from initializeGoogle import initializeChrome
-from redirectMeet import redirectGoogleMeet
-from botName import botName
+from .initializeGoogle import initializeChrome
+from .redirectMeet import redirectGoogleMeet
+from .botName import botName
 import time
 
 def joinMeet(meetLink: str, name: str):
   driver = initializeChrome()
   redirectGoogleMeet(driver, meetLink)
+  if driver:
+        while True:
+            time.sleep(60)    
   botName(driver, name) 
   
   

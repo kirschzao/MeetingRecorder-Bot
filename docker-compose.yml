@@ -1,9 +1,0 @@
-services:
-  bot:
-    container_name: bot-box_recorder
-    build:
-      context: ./bot
-      dockerfile: Dockerfile # Certifique-se que o arquivo se chama "Dockerfile" (com D maiúsculo)
-    environment:
-      - DISPLAY=:99
-    restart: unless-stopped
