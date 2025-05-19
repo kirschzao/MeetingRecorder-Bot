@@ -15,7 +15,6 @@ def initializeChrome():
         opt.add_argument("--no-sandbox")
         opt.add_argument("--disable-blink-features=AutomationControlled")
         opt.add_argument("--start-maximized")
-        # NÃO incluir "--headless" se quiser ver a janela
 
         temp_profile_dir = tempfile.mkdtemp()
         opt.add_argument(f"--user-data-dir={temp_profile_dir}")
