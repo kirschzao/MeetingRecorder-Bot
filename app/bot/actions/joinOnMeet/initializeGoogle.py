@@ -18,10 +18,18 @@ def initializeChrome():
 
         temp_profile_dir = tempfile.mkdtemp()
         opt.add_argument(f"--user-data-dir={temp_profile_dir}")
+        
+        # Configura preferências experimentais
+        opt.add_experimental_option("prefs", {
+            "profile.default_content_setting_values.media_stream_mic": 1,
+            "profile.default_content_setting_values.media_stream_camera": 1,
+            "profile.default_content_setting_values.geolocation": 0,
+            "profile.default_content_setting_values.notifications": 1,
+        })
 
         driver = webdriver.Chrome(options=opt)
         driver.set_window_position(0, 0)
-        driver.set_window_size(1080, 720)
+        driver.set_window_size(1920, 1080)
 
         print("✅ Driver do Chrome inicializado com sucesso!")
         return driver
