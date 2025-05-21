@@ -40,7 +40,6 @@ def initializeChrome():
         })
 
         driver = webdriver.Chrome(options=opt)
-        print("✅ Driver do Chrome inicializado com sucesso!")
         return driver
 
     except Exception as e:

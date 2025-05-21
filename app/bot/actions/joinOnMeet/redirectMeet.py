@@ -10,4 +10,3 @@ from selenium.webdriver.chrome.service import Service
 def redirectGoogleMeet(driver, meet_link):
   driver.get(meet_link)
   driver.implicitly_wait(60)
-  print("✅ Redirecionamento para o Link do Google Meet concluído!")
