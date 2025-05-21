@@ -10,11 +10,8 @@ import time
 def joinMeet(meetLink: str, name: str):
   driver = initializeChrome()
   redirectGoogleMeet(driver, meetLink)
-  if driver:
-        while True:
-            time.sleep(60)    
+             
   botName(driver, name) 
-  
   
   
 if __name__ == "__main__":
