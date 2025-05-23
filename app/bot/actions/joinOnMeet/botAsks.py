@@ -20,35 +20,65 @@ def botName(driver, text_to_insert):
 
 
 
-def askToJoin(driver):
-    # Ask to Join meet
-    time.sleep(2)
-    driver.implicitly_wait(2000)
-    driver.find_element(
-        By.CSS_SELECTOR, 'button[jscontroller="O626Fe"][data-promo-anchor-id="w5gBed"]').click()
-    print("⏱️ Pedindo Permissao para entrar (la ele KKKKKK)")
+def askToJoin(driver, timeout_seconds=60):
+    """
+    Clica em ‘Pedir para entrar’ e aguarda até:
+      – detectar que entrou (True)
+      – detectar mensagem de erro/recusa (False)
+      – ou estourar o timeout (False)
+    """
+    # Clica no botão de pedir permissão
+    print("⏳ Aguardando o botão de pedir permissão...")
+    driver.implicitly_wait(10)
+    try:
+        driver.find_element(
+            By.CSS_SELECTOR,
+            'button[jscontroller="O626Fe"][data-promo-anchor-id="w5gBed"]'
+        ).click()
+    except NoSuchElementException:
+        print("❌ Botão de pedir permissão não encontrado.")
+        return False
 
-    entrou = False
-
-    while not entrou:
-        print("⏱️ Verificando se já entrou na reunião...")
+    start = time.time()
+    while True:
+        # 1) Checou se entrou?
         if checkIfJoined(driver):
-            entrou = True
-        else:
-            print("Ainda não é o momento. Verificando novamente...")
-            time.sleep(0.5)
+            return True
+
+        # 2) Checou se apareceu mensagem de recusa/erro?
+        if checkIfRejected(driver):
+            return False
+
+        # 3) Timeout
+        if time.time() - start > timeout_seconds:
+            print(f"⏱️ Timeout de {timeout_seconds}s ao tentar entrar.")
+            return False
+
+        time.sleep(0.5)
 
 
 def checkIfJoined(driver):
     try:
-        # Verifica se o elemento está presente na página
-        driver.find_element(By.CSS_SELECTOR, 'div[aria-label="Você entrou na reunião"]')
-        print("✅ Entrou na reunião!")
+        join_button = WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located(
+                (By.CSS_SELECTOR, '[jscontroller="h8UR3d"]'))
+        )
+        print("✅ Dentro da Chamada")
         return True
-    except NoSuchElementException:
-        # O elemento não foi encontrado, o que significa que ainda não entrou na reunião
+    except:
         return False
-    except TimeoutException:
-        # Ocorreu um timeout ao esperar pelo elemento
-        print("⏱️ Timeout ao verificar se entrou na reunião.")
+    
+
+def checkIfRejected(driver):
+    try:
+        join_button = WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located(
+                (By.CSS_SELECTOR, 'div.cMgZMe'))
+        )
+        print("❌ Solicitação para entrar na chamada recusada")
+        return True
+    except:
         return False
+
+
+
