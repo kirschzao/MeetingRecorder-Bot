@@ -6,18 +6,25 @@ class Pipeline:
     self.meetBot = Bot(meetLink, botName)
   
   def run(self):
-    # initialize_environment(display=":99", resolution="1280x720", color_depth=24)
     
     try:
       #PASSO 1: Iniciar o ambiente
 
+
       #PASSO 2: Entrar na reunião
       self.meetBot.joinMeet()
       
-      #PASSO 3: Verifica se esta na reunião
-      self.meetBot.stayMeet()
+      #PASSO 3: Iniciar a gravação
 
-      #PASSO 4: Encerra processos
+      
+      #PASSO 4: Verifica se esta na reunião
+      self.meetBot.stayOnMeet()
+
+      #PASSO 5: Encerra Gravação
+
+
+      #PASSO 6: Encerra o ambiente
+
     
     except Exception as e:
       return e
