@@ -7,7 +7,7 @@ Para rodar o bot, é necessário obter sua imagem docker e rodar o repositório 
 
 ## Dependecies
 
-- Python 3.10
+- Python 3.13
 - Docker
 
 
