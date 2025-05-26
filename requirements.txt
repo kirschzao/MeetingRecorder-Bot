@@ -1,2 +1,5 @@
 selenium
 webdriver_manager
+pyfakewebcam
+opencv-python
+undetected-chromedriver

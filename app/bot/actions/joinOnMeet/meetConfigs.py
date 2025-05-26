@@ -18,9 +18,6 @@ def initializeChrome():
         opt.add_argument("--start-maximized")
         opt.add_argument("--start-fullscreen")
 
-        # Caminho para o arquivo .y4m com a imagem que simula a câmera
-        #base_dir = os.path.dirname(os.path.abspath(__file__))
-        #caminho_video_simulado = os.path.abspath(os.path.join(base_dir, "../../../assets/fake.mp4"))
         # Simula câmera e microfone automaticamente com arquivo de vídeo
         opt.add_argument("--use-fake-device-for-media-stream")
         opt.add_argument("--use-fake-ui-for-media-stream")
@@ -36,7 +33,7 @@ def initializeChrome():
             "profile.default_content_setting_values.media_stream_mic": 1,
             "profile.default_content_setting_values.media_stream_camera": 1,
             "profile.default_content_setting_values.geolocation": 0,
-            "profile.default_content_setting_values.notifications": 1,
+            "profile.default_content_setting_values.notifications": 0,
         })
 
         driver = webdriver.Chrome(options=opt)

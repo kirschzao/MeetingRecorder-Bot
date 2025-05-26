@@ -8,7 +8,7 @@ from selenium.common.exceptions import TimeoutException, NoSuchElementException
 def botName(driver, text_to_insert):
   try:
   # Aguarda até que o elemento input esteja visivel (timeout de 30 segundos)
-    input_field = WebDriverWait(driver, 30).until(
+    input_field = WebDriverWait(driver, 5).until(
     EC.visibility_of_element_located((By.CSS_SELECTOR, 'input[jsname="YPqjbf"]')))
   # Limpa o campo (opcional) e insere o texto
     input_field.clear()
@@ -21,12 +21,7 @@ def botName(driver, text_to_insert):
 
 
 def askToJoin(driver, timeout_seconds=60):
-    """
-    Clica em ‘Pedir para entrar’ e aguarda até:
-      – detectar que entrou (True)
-      – detectar mensagem de erro/recusa (False)
-      – ou estourar o timeout (False)
-    """
+    
     # Clica no botão de pedir permissão
     print("⏳ Aguardando o botão de pedir permissão...")
     driver.implicitly_wait(10)
@@ -40,6 +35,7 @@ def askToJoin(driver, timeout_seconds=60):
         return False
 
     start = time.time()
+    
     while True:
         # 1) Checou se entrou?
         if checkIfJoined(driver):
@@ -59,7 +55,7 @@ def askToJoin(driver, timeout_seconds=60):
 
 def checkIfJoined(driver):
     try:
-        join_button = WebDriverWait(driver, 5).until(
+        join_button = WebDriverWait(driver, 30).until(
             EC.presence_of_element_located(
                 (By.CSS_SELECTOR, '[jscontroller="h8UR3d"]'))
         )
@@ -71,7 +67,7 @@ def checkIfJoined(driver):
 
 def checkIfRejected(driver):
     try:
-        join_button = WebDriverWait(driver, 5).until(
+        join_button = WebDriverWait(driver, 60).until(
             EC.presence_of_element_located(
                 (By.CSS_SELECTOR, 'div.cMgZMe'))
         )

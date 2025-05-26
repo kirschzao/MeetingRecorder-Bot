@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
 from app.bot.actions.joinOnMeet.joinMeet import joinOnMeet
+from app.bot.actions.stayOnMeet.stayOnMeet import stayOnMeet
 import time
 
 class Bot:
@@ -15,6 +16,9 @@ class Bot:
     driver = joinOnMeet(self.meetLink, self.bot_name)
     self.driver = driver
 
-  
-  # def stayMeet(self):
+  def stayOnMeet(self):
+    stayOnMeet(self.driver)
+
+  def close(self):
+    self.driver.quit()
 
