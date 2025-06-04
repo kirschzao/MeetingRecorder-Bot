@@ -57,8 +57,8 @@ if __name__ == "__main__":
     gerar_video_y4m_da_foto(
         nome_foto="foto.jpg",       # certifique-se de usar exatamente “foto.jpeg” ou “foto.jpg”
         nome_saida="camera.y4m",
-        duracao_segundos=15,
+        duracao_segundos=3,
         largura=1280,
         altura=720,
-        fps=30
+        fps=1
     )
