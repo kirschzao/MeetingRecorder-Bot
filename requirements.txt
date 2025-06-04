@@ -1,5 +1,6 @@
 selenium
+pyvirtualdisplay
 webdriver_manager
 pyfakewebcam
 opencv-python
-undetected-chromedriver
+chromedriver
