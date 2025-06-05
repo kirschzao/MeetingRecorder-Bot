@@ -7,7 +7,7 @@ class Recorder:
         self.proc = None
 
     def startRec(self):
-        output_path = "../../../../output.mp4"
+        output_path = "Nome da Reuniao.mp4"
         fps = 15
         largura, altura = 1280, 720
 

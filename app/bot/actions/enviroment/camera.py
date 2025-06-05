@@ -4,7 +4,7 @@ import shlex
 import sys
 
 def gerar_video_y4m_da_foto(
-    nome_foto="foto.jpeg",       # ajuste para “foto.jpeg” ou “foto.jpg” conforme o nome exato
+    nome_foto="foto.jpg",       # ajuste para “foto.jpeg” ou “foto.jpg” conforme o nome exato
     nome_saida="camera.y4m",
     duracao_segundos=10,
     largura=640,
@@ -57,7 +57,7 @@ if __name__ == "__main__":
     gerar_video_y4m_da_foto(
         nome_foto="foto.jpg",       # certifique-se de usar exatamente “foto.jpeg” ou “foto.jpg”
         nome_saida="camera.y4m",
-        duracao_segundos=3,
+        duracao_segundos=2,
         largura=1280,
         altura=720,
         fps=1
