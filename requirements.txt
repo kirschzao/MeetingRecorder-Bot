@@ -1,6 +1,0 @@
-selenium
-pyvirtualdisplay
-webdriver_manager
-pyfakewebcam
-opencv-python
-chromedriver
