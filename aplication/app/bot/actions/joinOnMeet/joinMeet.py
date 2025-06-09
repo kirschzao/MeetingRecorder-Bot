@@ -5,7 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from .meetConfigs import initializeChrome
 from .redirectMeet import redirectGoogleMeet
 from .botAsks import botName, askToJoin
-from .meetButtons import cleanPopupGotIt, muteMicrophone
+from .meetButtons import cleanPopupGotIt, muteMic
 import time
 
 
@@ -19,17 +19,14 @@ def joinOnMeet(meetLink: str, name: str):
   botName(driver, name) 
   print("✅ Nome inserido com sucesso!")
   
+  muteMic(driver)
+  
   if askToJoin(driver):
     print("✅ Entrou na reunião!")
   else:
     raise Exception("❌ Sua solicitação para entrar na chamada foi recusada.")
-  
-  time.sleep(3)  # Aguarda a página carregar completamente
-
-  muteMicrophone(driver)
 
   cleanPopupGotIt(driver)
-
 
   return driver
 

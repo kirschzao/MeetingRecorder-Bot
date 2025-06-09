@@ -50,7 +50,7 @@ def askToJoin(driver, timeout_seconds=60):
             print(f"⏱️ Timeout de {timeout_seconds}s ao tentar entrar.")
             return False
 
-        time.sleep(0.5)
+        time.sleep(0.25)
 
 
 def checkIfJoined(driver):

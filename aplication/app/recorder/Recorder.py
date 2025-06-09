@@ -7,13 +7,16 @@ class Recorder:
         self.proc = None
 
     def startRec(self, nameMeet: str):
-        output_path = f"{nameMeet}.mp4"
+        #output_path = f"aplication/output/{nameMeet}.mp4"
+        output_path = f"./output/{nameMeet}.mp4"
         fps = 15
         largura, altura = 1280, 720
 
         # Garante que DISPLAY esteja definido
         if "DISPLAY" not in os.environ:
             os.environ["DISPLAY"] = ":99"
+
+        #audio_source = "alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink.monitor"
 
         cmd = [
             "ffmpeg",
@@ -44,7 +47,6 @@ class Recorder:
 
             # Codec de áudio
             "-c:a", "aac",
-
             output_path
         ]
 
@@ -59,6 +61,7 @@ class Recorder:
 
     def stopRec(self):
         if not self.proc:
+            print("deu pauu")
             return
         proc = self.proc
         if proc.poll() is None:

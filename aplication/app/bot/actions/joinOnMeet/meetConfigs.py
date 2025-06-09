@@ -40,7 +40,7 @@ def initializeChrome():
         # Permissões automáticas para mídia
         opt.add_experimental_option("prefs", {
             "profile.default_content_setting_values.media_stream_mic": 2,
-            "profile.default_content_setting_values.media_stream_camera": 1,
+            "profile.default_content_setting_values.media_stream_camera": 2,
             "profile.default_content_setting_values.geolocation": 0,
             "profile.default_content_setting_values.notifications": 1,
             "profile.default_content_setting_values.popups": 2,

@@ -3,11 +3,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-def muteMicrophone(driver):
+def muteMic(driver):
     try:
         micButton = WebDriverWait(driver, 15).until(EC.element_to_be_clickable((By.CSS_SELECTOR, '[jsname="hw0c9"]')))
         micButton.click()
-        print("✅ Microfone desativado com sucesso")
+        print("✅ Mic mutado com sucesso")
     except (TimeoutException, NoSuchElementException):
         print("❌ Não foi possível desativar o microfone")
 
