@@ -40,8 +40,6 @@ class Pipeline:
       self.status = Status.ERROR
       return e
 
-  def getStatus(self):
-    return self.status
 
 class Status(Enum):
   BUILDING = "Building"
