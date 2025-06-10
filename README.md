@@ -16,7 +16,7 @@ Para rodar o bot, é necessário obter sua imagem docker e rodar o repositório 
 na raiz do projeto, para criar a imagem do bot: 
 
 ```bash
-$ docker build bot-image .
+$ docker build -t bot .
 ```
 
 ## License
