@@ -5,3 +5,4 @@ pyfakewebcam==0.1.0
 opencv-python==4.11.0.86
 chromedriver==2.24.1
 python-dotenv==1.1.0
+requests==2.31.0
