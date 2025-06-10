@@ -1,5 +1,7 @@
-venv
+.venv
 __pycache__
 *.pyc
 *.pyo
 *.pyd
+*.y4moutput/Produto.mp4
+*.mp4

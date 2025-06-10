@@ -5,8 +5,6 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 
-
-
 def redirectGoogleMeet(driver, meet_link):
   driver.get(meet_link)
   driver.implicitly_wait(60)
