@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 import os
 class Requests:
     def __init__(self, apiKey: str, botId: str, userId: str):
-        self.headers = {"Authorization": apiKey}
+        self.headers = {"Authorization": "Beasy {apiKey}", "Content-Type": "application/json"}
         self.botId = botId
         self.userId = userId
         
