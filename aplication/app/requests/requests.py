@@ -1,44 +1,32 @@
 import requests
+from ..pipeline.Pipeline import Status
+from dotenv import load_dotenv
+import os
+class Requests:
+    def __init__(self, apiKey: str, botId: str, userId: str):
+        self.headers = {"Authorization": apiKey}
+        self.botId = botId
+        self.userId = userId
+        
 
-def changeStatus():
-    url = ""
-    token= ""
+    def changeStatus(self, status: Status):
+        load_dotenv()
+        url = os.getenv("API_URL", "http://localhost:5000/bot")
+        data={
+            "botId" :self.botId,
+            "userId": self.userId,
+            "status": status.value
+        }
+        response = requests.put(url, json=data, headers=self.headers)
+        if response.status_code == 200:
+            return True  # Retorna o conteúdo da resposta em formato JSON
+        else:
+            return f"Erro {response.status_code}: {response.text}"
+        
+    def sendVideoToAws():
+        #if response.status_code == 200:
+            return True  # Retorna o conteúdo da resposta em formato JSON
+        #else:
+           # return f"Erro {response.status_code}: {response.text}"
 
-    headers = {
-    "Authorization": token,
-    "Content-Type": "application/json"
-    }
-
-    data = {
-        "ID_BOT": "ss",
-        "ID_USER": "",
-        "Status": "",
-    }
-
-    response = requests.post(url, json=data)
-
-
-def sendVideoToAWS():
-    AWS_USER_PATH = ""
-    url= ""
-
-    data = {
-        "ID_BOT": "",
-        "ID_USER": "",
-        "Status": ""
-    }
-
-    response = requests.post(url, json=data)
-
-
-
-
-
-
-#ID_BOT = ""
-#ID_USER = ""
-#MEET_LINK = "https://meet.google.com/ugs-vzys-mua"
-#BOT_NAME = "BeasyBot"
-#MEET_NAME = "Produto"
-#STATUS = "BUILDING"
-#AWS_ADDRES= ""
+    

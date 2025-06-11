@@ -35,9 +35,19 @@ class Pipeline:
 
       #PASSO 6: Encerra o ambiente
       display.stop()
+
+      #PASSO 7: Mandar para S3
+
+      
+      #PASSO 8:Mandar Para API que esta tudo certo!
+
+
+      print("✅✅✅✅✅ Pipeline executado com sucesso!")
     
     except Exception as e:
       self.status = Status.ERROR
+
+      #PASSO DE ERRO: MANDAR ERRO PARA O BANCO
       return e
 
 
@@ -46,4 +56,5 @@ class Status(Enum):
   ASKING = "Asking"
   RECORDING = "Recording"
   PROCESSING = "Processing"
+  FINISHED = "Finished"
   ERROR = "Error"
