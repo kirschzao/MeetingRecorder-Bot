@@ -1,8 +1,8 @@
-# BeasyBot
+# Meeting Recorder
 
 ## Description
 
-Este projeto consiste no bot do projeto BoxRecorder da BeasyBox - iniciado no ano de 2025.
+Este projeto consiste no bot do projeto BoxRecorder - iniciado no ano de 2025.
 Para rodar o bot, é necessário obter sua imagem docker e rodar o repositório do [backend]
 
 ## Dependecies
@@ -10,15 +10,10 @@ Para rodar o bot, é necessário obter sua imagem docker e rodar o repositório 
 - Python 3.12
 - Docker
 
-
 ## Project setup
 
-na raiz do projeto, para criar a imagem do bot: 
+na raiz do projeto, para criar a imagem do bot:
 
 ```bash
 $ docker build -t bot .
 ```
-
-## License
-
-- Licenciado pela Beasy papai
